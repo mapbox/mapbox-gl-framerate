@@ -1,0 +1,55 @@
+{
+  "name": "FrameRateControl",
+  "version": "1.0.0",
+  "description": "A frame rate control to evaluate map rendering performance",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "serve": "st -nc -i demo/index.html",
+    "start": "run-p serve watch",
+    "lint": "eslint --no-eslintrc -c .eslintrc index.js",
+    "precommit": "lint-staged",
+    "test": "npm run lint"
+  },
+  "keywords": [
+    "fps",
+    "mapbox"
+  ],
+  "author": "Mapbox",
+  "license": "Copyright © Mapbox",
+  "lint-staged": {
+    "**/*.js": [
+      "eslint",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "@mapbox/eslint-config-mapbox": "^1.2.1",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "husky": "^1.1.3",
+    "lint-staged": "^8.0.4",
+    "npm-run-all": "^4.1.3",
+    "prettier": "^1.15.2",
+    "rollup": "^0.67.0",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-watch": "^4.3.1",
+    "st": "^1.2.2"
+  },
+  "dependencies": {}
+}

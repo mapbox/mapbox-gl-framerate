@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "mapboxgl": true
+  },
+  "extends": [
+    "@mapbox/eslint-config-mapbox",
+    "@mapbox/eslint-config-mapbox/import",
+    "prettier"
+  ],
+  "rules": {
+    "node/no-unsupported-features": 0
+  }
+}
