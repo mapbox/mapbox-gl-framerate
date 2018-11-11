@@ -23,9 +23,16 @@ class FrameRateControl {
     this.map = map;
 
     const dpr = window.devicePixelRatio;
-    const { width, graphWidth, graphHeight, color, background, font } = this.options;
+    const {
+      width,
+      graphWidth,
+      graphHeight,
+      color,
+      background,
+      font
+    } = this.options;
 
-    const el = this.container = document.createElement('div');
+    const el = (this.container = document.createElement('div'));
     el.className = 'mapboxgl-ctrl mapboxgl-ctrl-fps';
 
     el.style.backgroundColor = background;
@@ -43,7 +50,8 @@ class FrameRateControl {
     this.canvas.className = 'mapboxgl-ctrl-canvas';
     this.canvas.width = width;
     this.canvas.height = graphHeight;
-    this.canvas.style.cssText = `width: ${(width) / dpr}px; height: ${(graphHeight) / dpr}px;`;
+    this.canvas.style.cssText = `width: ${width /
+      dpr}px; height: ${graphHeight / dpr}px;`;
 
     el.appendChild(this.readOutput);
     el.appendChild(this.canvas);
@@ -63,7 +71,7 @@ class FrameRateControl {
     const now = performance.now();
     this.updateGraph(this.getFPS(now));
     this.frames = 0;
-    this.time = null
+    this.time = null;
     this.map.off('render', this.onRender);
   };
 
@@ -78,9 +86,8 @@ class FrameRateControl {
   };
 
   getFPS = now => {
-    this.totalTime += now - this.time,
-    this.totalFrames += this.frames;
-    return Math.round(1e3 * this.frames / (now - this.time))
+    (this.totalTime += now - this.time), (this.totalFrames += this.frames);
+    return Math.round((1e3 * this.frames) / (now - this.time));
   };
 
   updateGraph = fpsNow => {
@@ -95,7 +102,7 @@ class FrameRateControl {
     } = this.options;
 
     const context = this.canvas.getContext('2d');
-    const fps = Math.round(1e3 * this.totalFrames / this.totalTime);
+    const fps = Math.round((1e3 * this.totalFrames) / this.totalTime);
     const rect = (graphHeight, barWidth);
 
     context.fillStyle = background;
@@ -104,11 +111,31 @@ class FrameRateControl {
     context.fillStyle = color;
 
     this.readOutput.textContent = `${fpsNow} FPS (${fps} Avg)`;
-    context.drawImage(this.canvas, graphRight + rect, graphTop, graphWidth - rect, graphHeight, graphRight, graphTop, graphWidth - rect, graphHeight);
-    context.fillRect(graphRight + graphWidth - rect, graphTop, rect, graphHeight);
+    context.drawImage(
+      this.canvas,
+      graphRight + rect,
+      graphTop,
+      graphWidth - rect,
+      graphHeight,
+      graphRight,
+      graphTop,
+      graphWidth - rect,
+      graphHeight
+    );
+    context.fillRect(
+      graphRight + graphWidth - rect,
+      graphTop,
+      rect,
+      graphHeight
+    );
     context.fillStyle = background;
-    context.globalAlpha = .75;
-    context.fillRect(graphRight + graphWidth - rect, graphTop, rect, (1 - fpsNow / 100) * graphHeight);
+    context.globalAlpha = 0.75;
+    context.fillRect(
+      graphRight + graphWidth - rect,
+      graphTop,
+      rect,
+      (1 - fpsNow / 100) * graphHeight
+    );
   };
 
   onRemove = () => {
@@ -119,7 +146,7 @@ class FrameRateControl {
     this.map = null;
     return this;
   };
-};
+}
 
 if (window.mapboxgl) {
   mapboxgl.FrameRateControl = FrameRateControl;

@@ -1,6 +1,6 @@
 {
   "name": "FrameRateControl",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A frame rate control to evaluate map rendering performance",
   "main": "index.js",
   "directories": {
@@ -12,6 +12,7 @@
     "serve": "st -nc -i demo/index.html",
     "start": "run-p serve watch",
     "lint": "eslint --no-eslintrc -c .eslintrc index.js",
+    "format": "prettier --write '*.js'",
     "precommit": "lint-staged",
     "test": "npm run lint"
   },
@@ -22,11 +23,13 @@
   "author": "Mapbox",
   "license": "Copyright © Mapbox",
   "lint-staged": {
-    "**/*.js": [
-      "eslint",
-      "prettier --write",
-      "git add"
-    ]
+    "linters": {
+      "*.js": [
+        "eslint",
+        "prettier --write",
+        "git add"
+      ]
+    }
   },
   "prettier": {
     "singleQuote": true
