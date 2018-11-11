@@ -1,4 +1,4 @@
-mapbox-gl-framerate
+mapbox-gl-framerate ([demo](https://hey.mapbox.com/mapbox-gl-framerate/demo/))
 ---
 
 A frame rate control to evaluate map rendering performance
@@ -40,10 +40,3 @@ You'll need a [Mapbox access token](https://www.mapbox.com/help/create-api-acces
 ```sh
 localStorage.setItem('MapboxAccessToken', '<TOKEN HERE>');
 ```
-
-### Testing
-
-Tests require an MapboxAccessToken env variable to be set. export a valid
-access token from the `MapboxAccessToken` variable and run the test command.
-
-    export MapboxAccessToken="YOUR ACCESS TOKEN" && npm test
