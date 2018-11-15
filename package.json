@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/mapbox-gl-framerate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A frame rate control to evaluate map rendering performance",
   "main": "index.js",
   "directories": {
