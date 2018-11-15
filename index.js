@@ -87,7 +87,7 @@ class FrameRateControl {
 
   getFPS = now => {
     (this.totalTime += now - this.time), (this.totalFrames += this.frames);
-    return Math.round((1e3 * this.frames) / (now - this.time));
+    return Math.round((1e3 * this.frames) / (now - this.time)) || 0;
   };
 
   updateGraph = fpsNow => {
@@ -102,7 +102,7 @@ class FrameRateControl {
     } = this.options;
 
     const context = this.canvas.getContext('2d');
-    const fps = Math.round((1e3 * this.totalFrames) / this.totalTime);
+    const fps = Math.round((1e3 * this.totalFrames) / this.totalTime) || 0;
     const rect = (graphHeight, barWidth);
 
     context.fillStyle = background;

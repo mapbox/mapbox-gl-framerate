@@ -117,7 +117,7 @@
 
     _defineProperty(this, "getFPS", function (now) {
       _this.totalTime += now - _this.time, _this.totalFrames += _this.frames;
-      return Math.round(1e3 * _this.frames / (now - _this.time));
+      return Math.round(1e3 * _this.frames / (now - _this.time)) || 0;
     });
 
     _defineProperty(this, "updateGraph", function (fpsNow) {
@@ -132,7 +132,7 @@
 
       var context = _this.canvas.getContext('2d');
 
-      var fps = Math.round(1e3 * _this.totalFrames / _this.totalTime);
+      var fps = Math.round(1e3 * _this.totalFrames / _this.totalTime) || 0;
       var rect = (barWidth);
       context.fillStyle = background;
       context.globalAlpha = 1;
@@ -142,7 +142,7 @@
       context.drawImage(_this.canvas, graphRight + rect, graphTop, graphWidth - rect, graphHeight, graphRight, graphTop, graphWidth - rect, graphHeight);
       context.fillRect(graphRight + graphWidth - rect, graphTop, rect, graphHeight);
       context.fillStyle = background;
-      context.globalAlpha = .75;
+      context.globalAlpha = 0.75;
       context.fillRect(graphRight + graphWidth - rect, graphTop, rect, (1 - fpsNow / 100) * graphHeight);
     });
 
