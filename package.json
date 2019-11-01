@@ -21,7 +21,7 @@
     "mapbox"
   ],
   "author": "Mapbox",
-  "license": "Copyright © Mapbox",
+  "license": "ISC",
   "lint-staged": {
     "linters": {
       "*.js": [
