@@ -1,4 +1,4 @@
-mapbox-gl-framerate ([demo](https://hey.mapbox.com/mapbox-gl-framerate/demo/))
+mapbox-gl-framerate ([demo](https://labs.mapbox.com/mapbox-gl-framerate/))
 ---
 
 A frame rate control to evaluate map rendering performance
